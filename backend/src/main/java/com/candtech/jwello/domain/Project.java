@@ -1,6 +1,10 @@
 package com.candtech.jwello.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -9,13 +13,26 @@ public class Project {
     @Id
     @GeneratedValue
     private Long id;
+
+    @NotBlank(message = "Project name is required")
     private String projectName;
+
+    @NotBlank(message = "Project identifier is required")
+    @Size(min=4, max=10, message =  "Please use 4-10 chararcters")
+    @Column(updatable = false, unique = true)
     private String projectIdentifier;
+
+    @NotBlank(message = "Description required")
     private String description;
+
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date start_date;
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date end_date;
 
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date createdAt;
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date updatedAt;
 
     @PrePersist
