@@ -3,9 +3,10 @@ import { GET_ERRORS } from "../types";
 const initialState = {};
 
 export const errorReducer = (state = initialState, action={}) => {
- 	switch (action.type) {
+	const { type, payload } = action; 
+ 	switch (type) {
 		case GET_ERRORS:
-			return action.payload;
+			return payload;
 		default:
 			return state;
 	}
