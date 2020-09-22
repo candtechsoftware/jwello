@@ -7,6 +7,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import AddProject from './components/Projects/AddProject';
 import {Provider} from 'react-redux';
 import store from './store';
+import UpdateProject from './components/Projects/UpdateProject';
+
 function App() {
   return (
     <Provider store={store}>
@@ -15,6 +17,7 @@ function App() {
           <Header />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/add-project" component={AddProject} />
+          <Route exact path="/update-project/:id" component={UpdateProject} />
         </div>
       </Router>
     </Provider>
