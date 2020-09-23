@@ -41,7 +41,7 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-	project: state.projects,
+	project: state.project,
 });
 
 export default connect(mapStateToProps, { getProjects })(Dashboard);
